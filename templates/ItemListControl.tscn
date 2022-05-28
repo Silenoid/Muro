@@ -1,0 +1,134 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/trash.png" type="Texture" id=1]
+[ext_resource path="res://ImagePreviewTextureRect.gd" type="Script" id=2]
+[ext_resource path="res://templates/ItemListControl.gd" type="Script" id=3]
+
+[node name="ItemListControl" type="VBoxContainer"]
+margin_top = 368.0
+margin_right = 455.0
+margin_bottom = 572.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox4" type="HBoxContainer" parent="."]
+margin_right = 455.0
+margin_bottom = 36.0
+alignment = 2
+
+[node name="DeleteButton" type="Button" parent="HBox4"]
+margin_left = 413.0
+margin_right = 455.0
+margin_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+icon = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="."]
+margin_top = 40.0
+margin_right = 455.0
+margin_bottom = 40.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ImagePreviewTextureRect" type="TextureRect" parent="HBox"]
+margin_left = 227.0
+margin_right = 227.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox1" type="HBoxContainer" parent="."]
+margin_top = 44.0
+margin_right = 455.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBox1"]
+margin_right = 84.0
+margin_bottom = 20.0
+text = "File path: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FilePathLabel" type="Label" parent="HBox1"]
+margin_left = 88.0
+margin_right = 88.0
+margin_bottom = 20.0
+
+[node name="HBox2" type="HBoxContainer" parent="."]
+margin_top = 68.0
+margin_right = 455.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBox2"]
+margin_top = 5.0
+margin_right = 159.0
+margin_bottom = 25.0
+text = "Offset from origin:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="XOffset" type="SpinBox" parent="HBox2"]
+margin_left = 163.0
+margin_right = 249.0
+margin_bottom = 30.0
+min_value = -500.0
+max_value = 500.0
+suffix = "px"
+
+[node name="YOffset" type="SpinBox" parent="HBox2"]
+margin_left = 253.0
+margin_right = 339.0
+margin_bottom = 30.0
+min_value = -500.0
+max_value = 500.0
+suffix = "px"
+
+[node name="HBox3" type="HBoxContainer" parent="."]
+margin_top = 102.0
+margin_right = 455.0
+margin_bottom = 122.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBox3"]
+margin_right = 161.0
+margin_bottom = 20.0
+text = "Spawn probability:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnProbabilitySlider" type="HSlider" parent="HBox3"]
+margin_left = 165.0
+margin_right = 455.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+scrollable = false
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_top = 126.0
+margin_right = 455.0
+margin_bottom = 130.0
+
+[connection signal="pressed" from="HBox4/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="value_changed" from="HBox2/XOffset" to="HBox/ImagePreviewTextureRect" method="_on_XOffset_value_changed"]
+[connection signal="value_changed" from="HBox2/YOffset" to="HBox/ImagePreviewTextureRect" method="_on_YOffset_value_changed"]

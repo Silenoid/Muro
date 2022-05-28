@@ -1,0 +1,345 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Tema.tres" type="Theme" id=1]
+[ext_resource path="res://MainControl.gd" type="Script" id=2]
+[ext_resource path="res://tileset/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+
+[node name="MainNode" type="Node"]
+script = ExtResource( 4 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="MainControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainControl"]
+anchor_right = 1.0
+margin_right = 40.0
+margin_bottom = 40.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfigureButton" type="Button" parent="MainControl/HBoxContainer"]
+margin_left = 337.0
+margin_right = 422.0
+margin_bottom = 40.0
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateButton" type="Button" parent="MainControl/HBoxContainer"]
+margin_left = 426.0
+margin_right = 520.0
+margin_bottom = 40.0
+text = "Generate"
+
+[node name="SaveScreen" type="Button" parent="MainControl/HBoxContainer"]
+margin_left = 524.0
+margin_right = 726.0
+margin_bottom = 40.0
+text = "Save the madfaccher"
+
+[node name="WindowDialog" type="WindowDialog" parent="MainControl"]
+visible = true
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 576.0
+margin_bottom = 768.0
+rect_min_size = Vector2( 400, 600 )
+popup_exclusive = true
+window_title = "Settings"
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="MarginContainer" parent="MainControl/WindowDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBoxMain" type="VBoxContainer" parent="MainControl/WindowDialog/ScrollContainer"]
+margin_right = 536.0
+margin_bottom = 672.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_right = 536.0
+margin_bottom = 28.0
+text = "General"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 32.0
+margin_right = 536.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox"]
+margin_right = 161.0
+margin_bottom = 28.0
+text = "Image resolution:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox"]
+margin_left = 165.0
+margin_right = 352.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="ImageWidth" type="SpinBox" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox"]
+margin_left = 356.0
+margin_right = 444.0
+margin_bottom = 28.0
+min_value = 100.0
+max_value = 4000.0
+value = 960.0
+suffix = "px"
+
+[node name="ImageHeight" type="SpinBox" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox"]
+margin_left = 448.0
+margin_right = 536.0
+margin_bottom = 28.0
+min_value = 100.0
+max_value = 4000.0
+value = 540.0
+suffix = "px"
+
+[node name="HBox3" type="HBoxContainer" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 64.0
+margin_right = 536.0
+margin_bottom = 92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox3"]
+margin_right = 198.0
+margin_bottom = 28.0
+text = "Dungeon tilemap size:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox3"]
+margin_left = 202.0
+margin_right = 352.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="WidthTilemapSize" type="SpinBox" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox3"]
+margin_left = 356.0
+margin_right = 444.0
+margin_bottom = 28.0
+min_value = 1.0
+max_value = 1000.0
+value = 160.0
+suffix = "tiles"
+
+[node name="HeightTilemapSize" type="SpinBox" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox3"]
+margin_left = 448.0
+margin_right = 536.0
+margin_bottom = 28.0
+min_value = 1.0
+max_value = 1000.0
+value = 90.0
+suffix = "tiles"
+
+[node name="HSeparator" type="HSeparator" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 96.0
+margin_right = 536.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 104.0
+margin_right = 536.0
+margin_bottom = 132.0
+text = "Tileset"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox7" type="HBoxContainer" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 136.0
+margin_right = 536.0
+margin_bottom = 164.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox7"]
+margin_right = 195.0
+margin_bottom = 28.0
+text = "Load tilemap texture:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox7"]
+margin_left = 199.0
+margin_right = 365.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox7"]
+margin_left = 369.0
+margin_right = 536.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+text = "Select a file"
+
+[node name="HBox8" type="HBoxContainer" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 168.0
+margin_right = 536.0
+margin_bottom = 196.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox8"]
+margin_right = 137.0
+margin_bottom = 28.0
+text = "Tile resolution:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox8"]
+margin_left = 141.0
+margin_right = 444.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox8"]
+margin_left = 448.0
+margin_right = 536.0
+margin_bottom = 28.0
+min_value = 2.0
+max_value = 64.0
+value = 8.0
+suffix = "px"
+
+[node name="HSeparator2" type="HSeparator" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 200.0
+margin_right = 536.0
+margin_bottom = 204.0
+
+[node name="Label2" type="Label" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 208.0
+margin_right = 536.0
+margin_bottom = 236.0
+text = "Items to spawn"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadItemButton" type="Button" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 240.0
+margin_right = 536.0
+margin_bottom = 268.0
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemsContainer" type="VBoxContainer" parent="MainControl/WindowDialog/ScrollContainer/VBoxMain"]
+margin_top = 272.0
+margin_right = 536.0
+margin_bottom = 272.0
+
+[node name="ItemFileDialog" type="FileDialog" parent="MainControl"]
+visible = true
+margin_left = 640.0
+margin_top = 64.0
+margin_right = 1216.0
+margin_bottom = 384.0
+window_title = "Apri un file"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png" )
+show_hidden_files = true
+current_dir = "/Mega/Muro"
+current_path = "/Mega/Muro/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TilesetFileDialog" type="FileDialog" parent="MainControl"]
+visible = true
+margin_left = 640.0
+margin_top = 448.0
+margin_right = 1216.0
+margin_bottom = 768.0
+window_title = "Apri un file"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.png" )
+show_hidden_files = true
+current_dir = "/Mega/Muro"
+current_path = "/Mega/Muro/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlertDialog" type="AcceptDialog" parent="MainControl"]
+visible = true
+margin_left = 1248.0
+margin_top = 64.0
+margin_right = 1307.0
+margin_bottom = 144.0
+popup_exclusive = true
+window_title = "Warning!"
+dialog_text = "Message placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MainControl"]
+margin_left = 440.0
+margin_top = 216.0
+margin_right = 760.0
+margin_bottom = 396.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MainControl/HBoxContainer/ConfigureButton" to="MainControl" method="_on_ConfigureButton_pressed"]
+[connection signal="pressed" from="MainControl/HBoxContainer/GenerateButton" to="." method="_on_GenerateButton_pressed"]
+[connection signal="pressed" from="MainControl/HBoxContainer/SaveScreen" to="." method="_on_SaveScreen_pressed"]
+[connection signal="value_changed" from="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox/ImageWidth" to="MainControl" method="_on_ImageWidth_value_changed"]
+[connection signal="value_changed" from="MainControl/WindowDialog/ScrollContainer/VBoxMain/HBox/ImageHeight" to="MainControl" method="_on_ImageHeight_value_changed"]
+[connection signal="pressed" from="MainControl/WindowDialog/ScrollContainer/VBoxMain/LoadItemButton" to="MainControl" method="_on_LoadItemButton_pressed"]
+[connection signal="file_selected" from="MainControl/ItemFileDialog" to="MainControl" method="_on_ItemFileDialog_file_selected"]
+[connection signal="file_selected" from="MainControl/TilesetFileDialog" to="MainControl" method="_on_TilesetFileDialog_file_selected"]
+[connection signal="gui_input" from="MainControl/ReferenceRect" to="MainControl" method="_on_ReferenceRect_gui_input"]
